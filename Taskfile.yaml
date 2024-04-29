@@ -1,0 +1,18 @@
+version: "3"
+
+dotenv:
+  - ".env"
+
+tasks:
+  run:
+    cmds:
+      - go run ./cmd
+
+  build:
+    cmds:
+      - go build -ldflags "-w -s" -o api ./cmd
+
+  up:
+    cmds:
+      - task: build
+      - ./api
